@@ -442,9 +442,9 @@ namespace Table.Dice
         {
             yield return new WaitForSeconds(1.5f);
 
-
-            dice.transform.rotation = Quaternion.identity;
-            dice.ResetPosition();          
+            Destroy(dice.gameObject);
+            //dice.transform.rotation = Quaternion.identity;
+            //dice.ResetPosition();          
             result = false;
             reseting = false;
         }

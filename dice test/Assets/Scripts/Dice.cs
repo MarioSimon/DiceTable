@@ -28,8 +28,22 @@ namespace Table.Dice
         {
             rb = GetComponent<Rigidbody>();
             startPos = transform.position;
+            selected = true;
         }
 
+
+        private void Update()
+        {
+            if (Input.GetMouseButton(1) && selected)
+            {
+                ReleaseDice();
+            }
+
+            if (Input.GetMouseButton(2) && selected)
+            {
+                Destroy(this.gameObject);
+            }
+        }
         // Update is called once per frame
         void FixedUpdate()
         {
@@ -41,14 +55,8 @@ namespace Table.Dice
                 float dirX = Random.Range(0, 500);
                 float dirY = Random.Range(0, 500);
                 float dirZ = Random.Range(0, 500);
-                //
-                //transform.position = new Vector3(0, 2, 0);
-                //transform.rotation = Quaternion.identity;
-                //
-                //rb.AddForce(transform.up * 100);
-                rb.AddTorque(dirX, dirY, dirZ);
 
-                //rb.velocity = -(prevPos + mouseOffset - transform.position) * 200 * Time.deltaTime;
+                rb.AddTorque(dirX, dirY, dirZ);
             }
             else
             {
@@ -103,7 +111,33 @@ namespace Table.Dice
                     return -1;
             }
         }
+
+        private void ReleaseDice()
+        {
+            //if (prevPos.x < transform.position.x - 0.025)
+            //{
+            //    rb.AddForce(new Vector3(400, 0, 0));
+            //}
+            //else if (prevPos.x > transform.position.x + 0.025)
+            //{
+            //    rb.AddForce(new Vector3(-400, 0, 0));
+            //}
+            //
+            //if (prevPos.z < transform.position.z - 0.025)
+            //{
+            //    rb.AddForce(new Vector3(0, 0, 400));
+            //}
+            //else if (prevPos.z > transform.position.z + 0.025)
+            //{
+            //    rb.AddForce(new Vector3(0, 0, -400));
+            //}
+            //transform.parent.parent.GetComponent<PlayerHand>().diceCount -= 1;
+            GetComponentInParent<PlayerHand>().diceCount -= 1;
+            transform.parent = null;
+            rb.AddForce(new Vector3(0, 50, 0));
+
+            Deselect();
+        }
+
     }
-
-
 }

@@ -1387,7 +1387,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2333696021969909548}
   - component: {fileID: 2875633400784312120}
-  - component: {fileID: 2875633400784312121}
   - component: {fileID: 2875633400784312122}
   m_Layer: 0
   m_Name: d20
@@ -1455,20 +1454,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2875633400784312121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110057177666186646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71e16764dd48eb43aea4736128fd28e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseOffset: {x: 0, y: 0, z: 0}
-  prevPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2875633400784312122
 MonoBehaviour:
   m_ObjectHideFlags: 0

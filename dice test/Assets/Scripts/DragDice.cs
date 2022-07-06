@@ -20,11 +20,6 @@ namespace Table.Dice
             rb = GetComponent<Rigidbody>();
         }
 
-        private void Update()
-        {
-            
-        }
-
         private Vector3 GetMouseWorldPos()
         {
             // 2d coordinates

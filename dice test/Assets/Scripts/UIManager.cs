@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     #region Variables
+    [SerializeField] PlayerHand hand;
     [Header("In-GameHUD")]
     [SerializeField] Button buttonD20;
 
@@ -23,9 +24,17 @@ public class UIManager : MonoBehaviour
     private void SpawnD20()
     {
         Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // z coordinate of game object on screen
 
-        Instantiate(prefabD20, new Vector3(mousePoint.x, 2, mousePoint.y), Quaternion.identity);
+        // z coordinate of game object on screen
+        if (hand.diceCount < hand.holdPositions.Length)
+        {
+            hand.diceCount += 1;
+            Instantiate(prefabD20, hand.holdPositions[hand.diceCount].position, Quaternion.identity, hand.holdPositions[hand.diceCount]);
+        }
+        else
+        {
+            Debug.Log("Max dice number reached");
+        }
     }
 
 }
