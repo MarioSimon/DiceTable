@@ -1,2 +1,2 @@
 # DiceTable
-Virtual table for role playing purposes on Unity
+Virtual table test for role playing purposes on Unity
